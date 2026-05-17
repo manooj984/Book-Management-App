@@ -1,0 +1,28 @@
+CREATE TABLE BookEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    pageCount INTEGER NOT NULL,
+    excerpt TEXT NOT NULL,
+    publishDate TEXT NOT NULL
+);
+
+getAllBooks:
+SELECT *
+FROM BookEntity;
+
+getBookById:
+SELECT *
+FROM BookEntity
+WHERE id = ?;
+
+insertBook:
+INSERT OR REPLACE INTO BookEntity(id, title, description, pageCount, excerpt, publishDate)
+VALUES (?, ?, ?, ?, ?, ?);
+
+deleteBookById:
+DELETE FROM BookEntity
+WHERE id = ?;
+
+deleteAllBooks:
+DELETE FROM BookEntity;
